@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our First Anniversary ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #fffafa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* CHUYỂN TRANG */
+        .page {
+            display: none;
+            width: 100%;
+            min-height: 100vh;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* TRANG 1 */
+        #page1 {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .heart {
+            font-size: 65px;
+            margin-bottom: 25px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.12); }
+        }
+
+        #page1 h1 {
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        #page1 .subtitle {
+            color: #987d82;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        .continue-btn {
+            width: 62px;
+            height: 62px;
+            border: none;
+            border-radius: 50%;
+            background: #e991a5;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 18px #e991a54d;
+            transition: transform 0.25s, background 0.25s;
+        }
+
+        .continue-btn:hover {
+            transform: scale(1.1);
+            background: #d8758d;
+        }
+
+        .continue-text {
+            margin-top: 12px;
+            color: #987d82;
+            font-size: 14px;
+        }
+
+        /* TRANG 2 */
+        #page2 {
+            flex-direction: column;
+            align-items: center;
+            padding: 45px 0 60px;
+            position: relative;
+        }
+
+        .back-btn {
+            align-self: flex-start;
+            margin: 0 0 25px 5%;
+            padding: 8px 0;
+            border: none;
+            background: transparent;
+            color: #987d82;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* KHUNG ẢNH */
+        .photo-box {
+            width: 440px;
+            max-width: 86%;
+            height: 290px;
+            border: 4px solid #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: white;
+            margin-bottom: 45px;
+        }
+
+        .photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Hiện thông báo nếu chưa thêm ảnh */
+        .photo-placeholder {
+            padding: 15px;
+            color: #777;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        /* KHUNG TÂM SỰ */
+        .text-box {
+            width: 92%;
+            max-width: 1000px;
+            min-height: 260px;
+            border: 4px solid #222;
+            background: white;
+            padding: 35px;
+            font-size: 17px;
+            line-height: 1.9;
+            overflow-wrap: anywhere;
+        }
+
+        .text-box p {
+            margin-bottom: 18px;
+        }
+
+        .text-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* HIỆU ỨNG TIM RƠI */
+        .falling-heart {
+            position: fixed;
+            top: -30px;
+            z-index: 10;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ĐIỆN THOẠI */
+        @media (max-width: 600px) {
+            #page1 h1 {
+                font-size: 26px;
+            }
+
+            .heart {
+                font-size: 55px;
+            }
+
+            #page2 {
+                padding-top: 35px;
+            }
+
+            .photo-box {
+                height: 250px;
+                margin-bottom: 30px;
+            }
+
+            .text-box {
+                width: 92%;
+                min-height: 300px;
+                padding: 22px;
+                font-size: 15px;
+                line-height: 1.85;
+            }
+
+            .back-btn {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==========================
+         TRANG 1: LỜI MỞ ĐẦU
+    =========================== -->
+    <section id="page1" class="page active">
+        <div>
+            <div class="heart">❤️</div>
+
+            <h1>
+                Cảm ơn 1 năm qua<br>
+                của chúng ta...
+            </h1>
+
+            <p class="subtitle">
+                Có một điều mình muốn nói với bạn.
+            </p>
+
+            <button
+                class="continue-btn"
+                onclick="nextPage()"
+                aria-label="Tiếp tục">
+                →
+            </button>
+
+            <p class="continue-text">tiếp tục</p>
+        </div>
+    </section>
+
+
+    <!-- ==========================
+         TRANG 2: ẢNH VÀ TÂM SỰ
+    =========================== -->
+    <section id="page2" class="page">
+
+        <button class="back-btn" onclick="previousPage()">
+            ← quay lại
+        </button>
+
+        <!-- KHUNG ẢNH
+             Đổi love.jpg thành tên ảnh của bạn.
+             Ảnh phải được upload lên cùng repository
+             với file index.html.
+        -->
+        <div class="photo-box">
+            <img
+                src="love.jpg"
+                alt="Kỷ niệm của chúng ta"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+
+            <p class="photo-placeholder" style="display:none;">
+                Hãy upload ảnh và kiểm tra tên file trong code.
+            </p>
+        </div>
+
+        <!-- KHUNG TÂM SỰ
+             Thay nội dung mẫu bên dưới bằng lời của bạn.
+             Có thể thêm hoặc xóa các đoạn <p>.
+        -->
+        <div class="text-box">
+
+            <p>Gửi người mình thương ❤️</p>
+
+            <p>
+                Một năm rồi nhỉ...
+            </p>
+
+            <p>
+                [Vậy là chúng ta đã cùng nhau đi qua một năm với biết bao kỷ niệm, từ những niềm vui nhỏ bé đến những lúc giận hờn, những lần không hiểu nhau nhưng cuối cùng vẫn chọn ở lại bên nhau. Cảm ơn anh vì đã xuất hiện trong cuộc đời em, vì đã cho em những cảm xúc thật đẹp và trở thành một phần quan trọng trong cuộc sống của em. Em biết rằng chúng ta vẫn còn nhiều điều phải học để hiểu nhau hơn, nhưng em mong rằng dù sau này có gặp bao nhiêu khó khăn, chúng ta vẫn sẽ nắm tay nhau, cùng vượt qua và trưởng thành trong tình yêu này. Mong rằng kỷ niệm một năm hôm nay chỉ là khởi đầu cho thật nhiều năm tháng hạnh phúc phía trước. ❤️]
+            </p>
+
+            <p>
+                [Em yêu anh, và hy vọng những năm sau này, người cùng em đón kỷ niệm ngày yêu nhau vẫn luôn là anh.❤️ ]
+            </p>
+
+            <p>
+                Cảm ơn vì đã xuất hiện trong cuộc đời em.
+                Mong rằng chúng ta sẽ còn có thật nhiều năm
+                cùng nhau nữa. ❤️
+            </p>
+
+        </div>
+    </section>
+
+
+    <script>
+        function nextPage() {
+            document.getElementById("page1").classList.remove("active");
+            document.getElementById("page2").classList.add("active");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+            createHearts();
+        }
+
+        function previousPage() {
+            document.getElementById("page2").classList.remove("active");
+            document.getElementById("page1").classList.add("active");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 16; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement("span");
+
+                    heart.className = "falling-heart";
+                    heart.textContent = Math.random() > 0.5 ? "♥" : "♡";
+                    heart.style.left = Math.random() * 100 + "vw";
+                    heart.style.color = "#e991a5";
+                    heart.style.fontSize = (12 + Math.random() * 16) + "px";
+                    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => heart.remove(), 8500);
+                }, i * 120);
+            }
+        }
+    </script>
+
+</body>
+</html>
