@@ -14,11 +14,13 @@
         }
 
         body {
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: #fffafa;
-            color: #333;
-            overflow-x: hidden;
-        }
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #fff7fa, #fdebf2, #fff9f5);
+    background-attachment: fixed;
+    color: #765564;
+    overflow-x: hidden;
+    min-height: 100vh;
+    }
 
         /* CHUYỂN TRANG */
         .page {
@@ -118,26 +120,59 @@
             cursor: pointer;
         }
 
-        /* KHUNG ẢNH */
-        .photo-box {
-            width: 440px;
-            max-width: 86%;
-            height: 290px;
-            border: 4px solid #222;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            background: white;
-            margin-bottom: 45px;
-        }
+        
+/* KHUNG ẢNH KỶ NIỆM */
+.photo-box {
+    position: relative;
+    width: 440px;
+    max-width: 86%;
+    height: 290px;
+    padding: 8px;
+    border: 1px solid #e8b8cb;
+    border-radius: 24px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    margin-bottom: 45px;
+    box-shadow:
+        0 10px 28px rgba(190, 120, 150, 0.18),
+        0 0 0 6px rgba(255, 255, 255, 0.75);
+}
 
-        .photo-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+.photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+    border: 1px solid #f5dce6;
+    overflow: hidden;
+}
+
+/* Hoa trang trí hai góc ảnh */
+.photo-box::before {
+    content: "🌸";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    font-size: 32px;
+    z-index: 2;
+    transform: rotate(-15deg);
+    pointer-events: none;
+}
+
+.photo-box::after {
+    content: "🌷";
+    position: absolute;
+    bottom: -18px;
+    right: -18px;
+    font-size: 30px;
+    z-index: 2;
+    transform: rotate(12deg);
+    pointer-events: none;
+}
 
         /* Hiện thông báo nếu chưa thêm ảnh */
         .photo-placeholder {
@@ -147,26 +182,56 @@
             font-size: 16px;
         }
 
-        /* KHUNG TÂM SỰ */
-        .text-box {
-            width: 92%;
-            max-width: 1000px;
-            min-height: 260px;
-            border: 4px solid #222;
-            background: white;
-            padding: 35px;
-            font-size: 17px;
-            line-height: 1.9;
-            overflow-wrap: anywhere;
-        }
+        
+/* KHUNG LÁ THƯ */
+.text-box {
+    position: relative;
+    width: 92%;
+    max-width: 1000px;
+    min-height: 260px;
+    border: 1.5px solid #e8b8cb;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 38px;
+    font-size: 17px;
+    line-height: 1.95;
+    color: #765564;
+    text-align: justify;
+    text-justify: inter-word;
+    overflow-wrap: anywhere;
+    box-shadow: 0 10px 28px rgba(190, 120, 150, 0.12);
+    margin-top: 10px;
+}
 
-        .text-box p {
-            margin-bottom: 18px;
-        }
+/* Hoa trang trí quanh thư */
+.text-box::before {
+    content: "🌸  ✿";
+    position: absolute;
+    top: -20px;
+    left: 18px;
+    font-size: 24px;
+    letter-spacing: 5px;
+    pointer-events: none;
+}
 
-        .text-box p:last-child {
-            margin-bottom: 0;
-        }
+.text-box::after {
+    content: "✿  🌷";
+    position: absolute;
+    bottom: -18px;
+    right: 18px;
+    font-size: 24px;
+    letter-spacing: 5px;
+    pointer-events: none;
+}
+
+.text-box p {
+    margin-bottom: 18px;
+}
+
+.text-box p:last-child {
+    margin-bottom: 0;
+}
+
 
         /* HIỆU ỨNG TIM RƠI */
         .falling-heart {
@@ -204,85 +269,18 @@
             }
 
             .text-box {
-                width: 92%;
-                min-height: 300px;
-                padding: 22px;
-                font-size: 15px;
-                line-height: 1.85;
-            }
-
+    width: 92%;
+    min-height: 300px;
+    padding: 28px 22px;
+    font-size: 15px;
+    line-height: 1.85;
+    text-align: justify;
+}
             .back-btn {
                 margin-bottom: 20px;
             }
         }
         
-/* ===== TONE HỒNG PASTEL LÃNG MẠN ===== */
-body {
-  background: linear-gradient(135deg, #fff7fa, #fdebf2, #fff9f5);
-  color: #765564;
-}
-
-/* ===== KHUNG LÁ THƯ ===== */
-.text-box {
-  text-align: justify;
-  text-justify: inter-word;
-  line-height: 1.9;
-  color: #765564;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1.5px solid #edc4d4;
-  border-radius: 18px;
-  padding: 30px 28px;
-  box-shadow: 0 8px 24px rgba(205, 135, 163, 0.12);
-  position: relative;
-  margin-top: 24px;
-}
-
-/* Hoa nhỏ ở hai góc khung thư */
-.text-box::before {
-  content: "🌸";
-  position: absolute;
-  top: -19px;
-  left: -13px;
-  font-size: 28px;
-  transform: rotate(-15deg);
-  pointer-events: none;
-}
-
-.text-box::after {
-  content: "🌷";
-  position: absolute;
-  bottom: -17px;
-  right: -10px;
-  font-size: 27px;
-  transform: rotate(12deg);
-  pointer-events: none;
-}
-
-/* ===== KHUNG ẢNH KỶ NIỆM ===== */
-img[src="love.jpg.jpg"] {
-  display: block;
-  width: min(100%, 340px);
-  height: auto;
-  margin: 20px auto 28px;
-  padding: 8px;
-  background: #fff;
-  border: 1.5px solid #e8b8cb;
-  border-radius: 18px;
-  box-shadow:
-    0 8px 22px rgba(190, 120, 150, 0.18),
-    0 0 0 5px rgba(255, 255, 255, 0.7);
-  object-fit: cover;
-}
-
-/* ===== NÚT MŨI TÊN ===== */
-button {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 14px rgba(205, 135, 163, 0.2);
-}
     </style>
 </head>
 
